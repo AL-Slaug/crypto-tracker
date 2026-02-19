@@ -6,10 +6,11 @@
     border: none;
     box-sizing: border-box;
 }
-*::before,
-*::after {
-    display: contents;
-}
+// в этом проекте не надо.
+// *::before,
+// *::after {
+//     display: contents;
+// }
 :root {
     interpolate-size: allow-keywords;
     color-scheme: light dark; 
