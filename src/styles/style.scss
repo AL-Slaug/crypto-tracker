@@ -440,7 +440,7 @@ body {
 .tracker-header,
 .tracker-row {
   display: grid;
-  grid-template-columns: 30px 1.5fr repeat(6, 1fr);
+  grid-template-columns: 30px 2fr repeat(6, 1fr);
   align-items: center;
   justify-items: center;
   padding: 1rem 0;
@@ -479,6 +479,14 @@ body {
   border-bottom: 2px solid $border-color;
   color: $color-text-muted;
   font-weight: 600;
+
+  .name {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1.5rem;
+  }
 }
 
 .tracker-row {
@@ -488,6 +496,24 @@ body {
 
   &:hover {
     background-color: rgba($bg-button2, 0.04);
+  }
+
+  .name  {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.4375rem;
+    padding-left: 1.5rem;
+
+    img {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    span {
+      color: #848e9c;
+      font-size: small;
+    }
   }
 }
 
