@@ -54,7 +54,7 @@
                 />
               </form>
               <a class="login-in" href="#">
-                <img src="./src/assets/svgicons/User-Login-icon.svg" alt=""/>
+                <img src="./src/assets/svgicons/User-Login-icon.svg" alt="" />
               </a>
               <button class="burger-menu" id="burger">
                 <span></span>
@@ -85,13 +85,36 @@
           <section class="hero-section">
             <div class="hero-section__tracker">
               <div class="tracker-header">
-                <div class="tracker-header__col rank">#</div>
-                <div class="tracker-header__col name">Name</div>
-                <div class="tracker-header__col price">Price</div>
-                <div class="tracker-header__col hour">1h %</div>
-                <div class="tracker-header__col day">24h %</div>
-                <div class="tracker-header__col market-cap">Market Cap</div>
-                <div class="tracker-header__col volume">Volume</div>
+                <div class="tracker-header__col rank" data-type="market_cap_rank">
+                  <span class="sort-arrow">▼</span>
+                  <span>#</span>
+                </div>
+                <div class="tracker-header__col name" data-type="name">
+                  <span class="sort-arrow">▼</span>
+                  <span>Name</span>
+                </div>
+                <div class="tracker-header__col price" data-type="current_price">
+                  <span class="sort-arrow">▼</span>
+                  <span>Price</span>
+                </div>
+                <div class="tracker-header__col hour" data-type="price_change_percentage_1h_in_currency">
+                  <span class="sort-arrow">▼</span>
+                  <span>1h %</span>
+                </div>
+                <div class="tracker-header__col day" data-type="price_change_percentage_24h">
+                  <span class="sort-arrow">▼</span>
+                  <span>24h %</span>
+                </div>
+                <div
+                  class="tracker-header__col market-cap"
+                  data-type="market_cap">
+                  <span class="sort-arrow">▼</span>
+                  <span>Market Cap</span>
+                </div>
+                <div class="tracker-header__col volume" data-type="total_volume">
+                  <span class="sort-arrow">▼</span>
+                  <span>Volume</span>
+                </div>
                 <div class="tracker-header__col chart">Last 7 Days</div>
               </div>
               <div class="tracker-body"></div>
