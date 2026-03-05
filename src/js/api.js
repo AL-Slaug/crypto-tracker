@@ -19,6 +19,24 @@ export async function getCoins() {
   }
 }
 
+function fomatStat(value, up, down) {
+  if (value === null || value === undefined) {
+    return {class: '', text: '-' };
+  }
+
+  if (value > 0) {
+    return {class: up, text: value.toFixed(1) + '%'};
+  }
+
+  if (value < 0) {
+    return {class: down, text: value.toFixed(1) + '%'};
+  }
+
+  if (value === 0) {
+    return {class: '', text: '0,0%'};
+  }
+}
+
 
 export function templateEngine(coin) {
   const {market_cap_rank: rank, name, image, symbol,  
@@ -40,13 +58,15 @@ export function templateEngine(coin) {
 
     const color = prices[0] <= prices[prices.length - 1] ? '#00ff88' : '#ff3b3b';
 
-      
+    const hourRes = fomatStat(hour, 'up', 'down')
+    const dayRes = fomatStat(day, 'up', 'down')
+    
     return `<div class="tracker-row">
             <div class="tracker-body__row rank">${rank}</div>
             <div class="tracker-body__row name"><img src="${image}">${name}<span>${symbol.toUpperCase()}</span></div>
             <div class="tracker-body__row price">${usdFormatter.format(price)}</div>
-            <div class="tracker-body__row hour">${hour?.toFixed(1)}%</div>
-            <div class="tracker-body__row day">${day?.toFixed(1)}%</div>
+            <div class="tracker-body__row hour ${hourRes.class}">${hourRes.text}</div>
+            <div class="tracker-body__row day ${dayRes.class}">${dayRes.text}</div>
             <div class="tracker-body__row market-cap">${usdFormatterBig.format(market)}</div>
             <div class="tracker-body__row volume">${usdFormatterBig.format(volume)}</div>
             <div class="tracker-body__row chart"><svg width="${width}" height="${height}"><polyline fill="none" stroke="${color}" stroke-width="2" points="${points}"/></svg></div> 
