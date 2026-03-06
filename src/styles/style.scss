@@ -484,6 +484,32 @@ body {
     cursor: pointer;
   }
 
+
+  .tracker-header__col[data-type] {
+   .sort-arrow {
+    opacity: 0;
+    display: inline-block;
+    transition: 0.3s ease, transform 0.3s ease;
+
+    &.up {
+      color: $bg-button2;
+      opacity: 1;
+      transform: rotate(180deg);
+    }
+ 
+    &.down {
+      color: $bg-button2;
+      opacity: 1;
+    }
+   }
+
+  //  &:hover {
+  //   .sort-arrow {
+  //     opacity: 0.5;
+  //   }
+  //  }
+  }
+
   .name {
     width: 100%;
     display: flex;

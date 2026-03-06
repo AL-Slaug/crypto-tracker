@@ -25,6 +25,12 @@ async function init() {
 
 init();
 
+setInterval(() => {
+  if (!document.hidden) {
+    init()
+  }
+}, 60000);
+
 function renderTable(data) {
     let bodyCoins = document.querySelector('.tracker-body');
     bodyCoins.innerHTML = '';
@@ -55,9 +61,16 @@ trackerHeader.addEventListener('click', sortHeader);
 function sortHeader(event) {
   let target = event.target.closest('.tracker-header__col[data-type]');
   if (!target) return;
+
+  const headArrow = document.querySelectorAll('.sort-arrow');
+  headArrow.forEach((elem) => {
+    elem.classList.remove('up', 'down');
+  })
+
   
   const type = target.dataset.type;
   isAscending = !isAscending;
+  target.querySelector('.sort-arrow').classList.add(isAscending ? 'up' : 'down');
 
   allCoins.sort((a, b) => {
     const valA = a[type];
