@@ -19,7 +19,7 @@ export async function getCoins() {
   }
 }
 
-function fomatStat(value, up, down) {
+function formatStat(value, up, down) {
   if (value === null || value === undefined) {
     return {class: '', text: '-' };
   }
@@ -58,8 +58,8 @@ export function templateEngine(coin) {
 
     const color = prices[0] <= prices[prices.length - 1] ? '#00ff88' : '#ff3b3b';
 
-    const hourRes = fomatStat(hour, 'up', 'down')
-    const dayRes = fomatStat(day, 'up', 'down')
+    const hourRes = formatStat(hour, 'up', 'down')
+    const dayRes = formatStat(day, 'up', 'down')
     
     return `<div class="tracker-row">
             <div class="tracker-body__row rank">${rank}</div>

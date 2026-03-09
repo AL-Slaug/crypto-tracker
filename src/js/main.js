@@ -1,6 +1,11 @@
 "use strict"
 
 let allCoins = [];
+let displayCoins = [];
+
+let currentPage = 1;
+let perPage = 20;
+
 
 // Переключатель направления сортировки
 let isAscending = true;
@@ -19,8 +24,15 @@ function showMenu() {
 import { getCoins, templateEngine } from "./api.js";
 
 async function init() {
-  allCoins = await getCoins();
-  renderTable(allCoins);
+  try {
+    allCoins = await getCoins();
+    displayCoins = allCoins;
+    renderPage();
+    
+  } catch (error) {
+    console.error(error)
+    document.querySelector('.tracker-body').innerHTML = '<p style="color: red; padding: 20px">Error loading data. Please try again later.</p>';
+  }
 };
 
 init();
@@ -48,10 +60,10 @@ const searchInput = document.querySelector('#search');
 
 searchInput.addEventListener('input', () => {
    let searchValue = searchInput.value.toLowerCase(); 
-   let filtereCoins = allCoins.filter((coin) => {
+   displayCoins = allCoins.filter((coin) => {
       return coin.name.toLowerCase().includes(searchValue) || coin.symbol.toLowerCase().includes(searchValue);
    });
-   renderTable(filtereCoins);
+   renderPage();
 });
 
 let trackerHeader = document.querySelector('.tracker-header');
@@ -72,7 +84,7 @@ function sortHeader(event) {
   isAscending = !isAscending;
   target.querySelector('.sort-arrow').classList.add(isAscending ? 'up' : 'down');
 
-  allCoins.sort((a, b) => {
+  displayCoins.sort((a, b) => {
     const valA = a[type];
     const valB = b[type];
 
@@ -83,6 +95,69 @@ function sortHeader(event) {
     return isAscending ? valA - valB : valB - valA;
   })
 
-  renderTable(allCoins);
+  renderPage();
 }
 
+function renderPage() {
+  const start = (currentPage - 1) * perPage;
+  const end = start + perPage;
+
+  let arrTable = displayCoins.slice(start, end);
+  
+  renderTable(arrTable);
+
+  renderPagination();
+
+}
+
+
+const list = document.querySelector('.num-list');
+list.addEventListener('click', changePage);
+
+
+function renderPagination() {
+  const maxPage = Math.ceil(displayCoins.length / perPage);
+  list.innerHTML = '';
+
+  list.innerHTML += '<button class="arrow-left"><</button>';
+
+  for (let i = 1; i <= maxPage; i++){
+    list.innerHTML +=`<button class="number">${i}</button>`
+  };
+
+  list.innerHTML += '<button class="arrow-right">></button>';
+}
+
+function changePage(event) {
+  const maxPage = Math.ceil(displayCoins.length / perPage);
+  let target = event.target;
+  if (target.tagName !== 'BUTTON') return; 
+
+  if (target.classList.contains('arrow-left')) {
+     currentPage--;
+  } else if (target.classList.contains('arrow-right')) {
+     currentPage++;
+  } else {
+     currentPage = Number(target.textContent);
+  }
+
+  if (currentPage < 1) currentPage = 1;
+  if (currentPage > maxPage) currentPage = maxPage; 
+
+  renderPage();
+}
+
+const coins = [
+  { name: 'Bitcoin', price: 45000 },
+  { name: 'Dogecoin', price: 0.08 },
+  { name: 'Ethereum', price: 2500 },
+  { name: 'Shiba', price: 0.00001 }
+]
+
+function run() {
+  let price = coins.filter(item => item.price > 100)
+  console.log(price);
+  
+}
+
+run();
