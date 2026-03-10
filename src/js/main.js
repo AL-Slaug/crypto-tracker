@@ -63,6 +63,7 @@ searchInput.addEventListener('input', () => {
    displayCoins = allCoins.filter((coin) => {
       return coin.name.toLowerCase().includes(searchValue) || coin.symbol.toLowerCase().includes(searchValue);
    });
+   currentPage = 1;
    renderPage();
 });
 
@@ -120,11 +121,9 @@ function renderPagination() {
   list.innerHTML = '';
 
   list.innerHTML += '<button class="arrow-left"><</button>';
-
   for (let i = 1; i <= maxPage; i++){
     list.innerHTML +=`<button class="number">${i}</button>`
   };
-
   list.innerHTML += '<button class="arrow-right">></button>';
 }
 
@@ -147,17 +146,3 @@ function changePage(event) {
   renderPage();
 }
 
-const coins = [
-  { name: 'Bitcoin', price: 45000 },
-  { name: 'Dogecoin', price: 0.08 },
-  { name: 'Ethereum', price: 2500 },
-  { name: 'Shiba', price: 0.00001 }
-]
-
-function run() {
-  let price = coins.filter(item => item.price > 100)
-  console.log(price);
-  
-}
-
-run();
