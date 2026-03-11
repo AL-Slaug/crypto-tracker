@@ -1,5 +1,8 @@
 "use strict"
 
+import { getCoins, templateEngine } from "./api.js";
+
+
 let allCoins = [];
 let displayCoins = [];
 
@@ -21,9 +24,9 @@ function showMenu() {
   document.body.classList.toggle('no-scroll');
 };
 
-import { getCoins, templateEngine } from "./api.js";
 
 async function init() {
+  console.log('init called');
   try {
     allCoins = await getCoins();
     displayCoins = allCoins;
@@ -117,14 +120,30 @@ list.addEventListener('click', changePage);
 
 
 function renderPagination() {
+   console.log('renderPagination called, currentPage:', currentPage);
   const maxPage = Math.ceil(displayCoins.length / perPage);
   list.innerHTML = '';
-
+  
   list.innerHTML += '<button class="arrow-left"><</button>';
   for (let i = 1; i <= maxPage; i++){
     list.innerHTML +=`<button class="number">${i}</button>`
   };
   list.innerHTML += '<button class="arrow-right">></button>';
+  
+  const num = list.querySelectorAll('.number');
+  const arrowLeft = list.querySelector('.arrow-left');
+  const arrowRight = list.querySelector('.arrow-right');
+  
+  num.forEach(elem => {
+    if (elem.textContent === String(currentPage)) {
+      elem.classList.add('active');
+    }
+  })
+  
+  if (currentPage === 1) arrowLeft.classList.toggle('disabled');
+  
+  
+  if (currentPage === maxPage) arrowRight.classList.toggle('disabled'); 
 }
 
 function changePage(event) {
@@ -145,4 +164,3 @@ function changePage(event) {
 
   renderPage();
 }
-
