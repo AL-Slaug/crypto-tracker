@@ -1,5 +1,7 @@
 "use strict"
 
+import { getCoins, templateEngine } from "./api.js";
+
 let allCoins = [];
 let displayCoins = [];
 
@@ -21,7 +23,6 @@ function showMenu() {
   document.body.classList.toggle('no-scroll');
 };
 
-import { getCoins, templateEngine } from "./api.js";
 
 async function init() {
   try {
@@ -43,10 +44,18 @@ setInterval(() => {
   }
 }, 60000);
 
-function renderTable(data) {
-    let bodyCoins = document.querySelector('.tracker-body');
-    bodyCoins.innerHTML = '';
 
+function closestList(event, element, trigger) {
+  if (!trigger.contains(event.target)) {
+    element.classList.remove('active');
+  }
+}
+
+
+function renderTable(data) {
+  let bodyCoins = document.querySelector('.tracker-body');
+  bodyCoins.innerHTML = '';
+  
   let result = '';
   data.forEach((elem) => {
     let coinHtml = templateEngine(elem);
@@ -120,12 +129,13 @@ function renderPagination() {
   const maxPage = Math.ceil(displayCoins.length / perPage);
   list.innerHTML = '';
 
-  list.innerHTML += '<button class="arrow-left"><</button>';
+  list.innerHTML += `<button class="arrow-left ${currentPage === 1 ? 'disabled' : ''}"><</button>`;
   for (let i = 1; i <= maxPage; i++){
-    list.innerHTML +=`<button class="number">${i}</button>`
+    list.innerHTML += `<button class="number ${i === currentPage ? 'active' : ''}">${i}</button>`
   };
-  list.innerHTML += '<button class="arrow-right">></button>';
+  list.innerHTML += `<button class="arrow-right ${currentPage === maxPage ? 'disabled' : ''}">></button>`;
 }
+
 
 function changePage(event) {
   const maxPage = Math.ceil(displayCoins.length / perPage);
@@ -146,3 +156,21 @@ function changePage(event) {
   renderPage();
 }
 
+const dropdownBtn = document.querySelector('.dropdown__btn')
+dropdownBtn.addEventListener('click', eventsDropdown);
+const dropdownList = document.querySelector('.dropdown__list')
+dropdownList.addEventListener('click', selectionDropdown);
+
+document.body.addEventListener('click', (event) => closestList(event, dropdownList, dropdownBtn));
+
+function eventsDropdown() {
+  dropdownBtn.classList.toggle('active');
+  dropdownList.classList.toggle('active');
+}
+
+function selectionDropdown(event) {
+  perPage = +event.target.dataset.value;
+  dropdownBtn.textContent = perPage
+  
+  renderPage(perPage);
+}
