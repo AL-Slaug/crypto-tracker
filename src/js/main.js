@@ -160,17 +160,37 @@ const dropdownBtn = document.querySelector('.dropdown__btn')
 dropdownBtn.addEventListener('click', eventsDropdown);
 const dropdownList = document.querySelector('.dropdown__list')
 dropdownList.addEventListener('click', selectionDropdown);
+const dropdownArrow = document.querySelector('.dropdown__arrow');
 
-document.body.addEventListener('click', (event) => closestList(event, dropdownList, dropdownBtn));
+document.body.addEventListener('click', (event) => { closestList(event, dropdownList, dropdownBtn)
+  dropdownList.classList.contains('active') ? dropdownArrow.classList.add('open') : dropdownArrow.classList.remove('open');
+});
 
 function eventsDropdown() {
   dropdownBtn.classList.toggle('active');
   dropdownList.classList.toggle('active');
+
+  if (!dropdownList.classList.contains('active')) return;
+  
+  let positionBtn = dropdownBtn.getBoundingClientRect();
+  let positionList = dropdownList.getBoundingClientRect();
+
+  if (positionBtn.bottom + positionList.height >  document.documentElement.clientHeight) {
+    dropdownList.style.top = 'auto';
+    dropdownList.style.bottom = '100%';
+  } else {
+    dropdownList.style.top = '100%';
+    dropdownList.style.bottom = 'auto';
+  }
 }
+
+const hiddenElement = document.querySelector('.tracker-header');
 
 function selectionDropdown(event) {
   perPage = +event.target.dataset.value;
-  dropdownBtn.textContent = perPage
+  hiddenElement.scrollIntoView({behavior: "smooth"})
+  dropdownBtn.firstChild.textContent = perPage;
+
   
   renderPage(perPage);
 }
