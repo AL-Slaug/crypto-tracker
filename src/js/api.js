@@ -2,7 +2,7 @@ let usdFormatter = new Intl.NumberFormat('en-US', { style: "currency", currency:
 let usdFormatterBig = new Intl.NumberFormat('en-US', { style: "currency", currency: "USD", maximumFractionDigits: 0 })
 
 export async function getCoins() {
-  const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&price_change_percentage=1h,24h,7d&sparkline=true&x_cg_demo_api_key=CG-MLnY1PgXaHGgKapUQVKrPxXe';
+  const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=247&price_change_percentage=1h,24h,7d&sparkline=true&x_cg_demo_api_key=CG-MLnY1PgXaHGgKapUQVKrPxXe';
 
   try {
     const response = await fetch (url);

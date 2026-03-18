@@ -68,12 +68,12 @@ function renderTable(data) {
 const searchInput = document.querySelector('#search');
 
 searchInput.addEventListener('input', () => {
-   let searchValue = searchInput.value.toLowerCase(); 
-   displayCoins = allCoins.filter((coin) => {
-      return coin.name.toLowerCase().includes(searchValue) || coin.symbol.toLowerCase().includes(searchValue);
-   });
-   currentPage = 1;
-   renderPage();
+  let searchValue = searchInput.value.toLowerCase(); 
+  displayCoins = allCoins.filter((coin) => {
+    return coin.name.toLowerCase().includes(searchValue) || coin.symbol.toLowerCase().includes(searchValue);
+  });
+  currentPage = 1;
+  renderPage();
 });
 
 let trackerHeader = document.querySelector('.tracker-header');
@@ -83,41 +83,41 @@ trackerHeader.addEventListener('click', sortHeader);
 function sortHeader(event) {
   let target = event.target.closest('.tracker-header__col[data-type]');
   if (!target) return;
-
+  
   const headArrow = document.querySelectorAll('.sort-arrow');
   headArrow.forEach((elem) => {
     elem.classList.remove('up', 'down');
   })
-
+  
   
   const type = target.dataset.type;
   isAscending = !isAscending;
   target.querySelector('.sort-arrow').classList.add(isAscending ? 'up' : 'down');
-
+  
   displayCoins.sort((a, b) => {
     const valA = a[type];
     const valB = b[type];
-
+    
     if (type === 'name') {
       return isAscending ? valA.localeCompare(valB, 'en') : valB.localeCompare(valA, 'en');
     }
-
+    
     return isAscending ? valA - valB : valB - valA;
   })
-
+  
   renderPage();
 }
 
 function renderPage() {
   const start = (currentPage - 1) * perPage;
   const end = start + perPage;
-
+  
   let arrTable = displayCoins.slice(start, end);
   
   renderTable(arrTable);
-
+  
   renderPagination();
-
+  
 }
 
 
@@ -128,10 +128,22 @@ list.addEventListener('click', changePage);
 function renderPagination() {
   const maxPage = Math.ceil(displayCoins.length / perPage);
   list.innerHTML = '';
-
+  let dotShown = false;
+  hiddenElement.scrollIntoView({behavior: "smooth"})
+  
   list.innerHTML += `<button class="arrow-left ${currentPage === 1 ? 'disabled' : ''}"><</button>`;
   for (let i = 1; i <= maxPage; i++){
-    list.innerHTML += `<button class="number ${i === currentPage ? 'active' : ''}">${i}</button>`
+    if (i === 1 || i === maxPage || i === currentPage || i === currentPage -1 || i === currentPage + 1) {
+      list.innerHTML += `<button class="number ${i === currentPage ? 'active' : ''}">${i}</button>`;
+      dotShown = false;
+    } else if (currentPage <= 3 && i <= 4) {
+      list.innerHTML += `<button class="number ${i === currentPage ? 'active' : ''}">${i}</button>`;
+    } else if (currentPage >= maxPage - 3 && i >= maxPage - 3) {
+      list.innerHTML += `<button class="number ${i === currentPage ? 'active' : ''}">${i}</button>`;
+    } else if (dotShown === false){
+      list.innerHTML += '...';
+      dotShown = true;
+    }
   };
   list.innerHTML += `<button class="arrow-right ${currentPage === maxPage ? 'disabled' : ''}">></button>`;
 }
@@ -163,19 +175,37 @@ dropdownList.addEventListener('click', selectionDropdown);
 const dropdownArrow = document.querySelector('.dropdown__arrow');
 
 document.body.addEventListener('click', (event) => { closestList(event, dropdownList, dropdownBtn)
-  dropdownList.classList.contains('active') ? dropdownArrow.classList.add('open') : dropdownArrow.classList.remove('open');
+
+  if (dropdownList.classList.contains('active')) {
+    dropdownArrow.classList.add('open')
+  } else {
+    dropdownArrow.classList.remove('open');
+    dropdownBtn.classList.remove('active');
+  }
+
 });
 
 function eventsDropdown() {
   dropdownBtn.classList.toggle('active');
   dropdownList.classList.toggle('active');
 
+  if (dropdownBtn.classList.contains('active')) {
+    window.addEventListener('scroll', showList);
+  } else  {
+    window.removeEventListener('scroll', showList);
+  }
+  
+  showList();
+}
+
+function showList () {
+  
   if (!dropdownList.classList.contains('active')) return;
   
   let positionBtn = dropdownBtn.getBoundingClientRect();
   let positionList = dropdownList.getBoundingClientRect();
-
-  if (positionBtn.bottom + positionList.height >  document.documentElement.clientHeight) {
+  
+  if (positionBtn.bottom + positionList.height > document.documentElement.clientHeight) {
     dropdownList.style.top = 'auto';
     dropdownList.style.bottom = '100%';
   } else {
@@ -191,6 +221,5 @@ function selectionDropdown(event) {
   hiddenElement.scrollIntoView({behavior: "smooth"})
   dropdownBtn.firstChild.textContent = perPage;
 
-  
   renderPage(perPage);
 }

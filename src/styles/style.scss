@@ -80,6 +80,8 @@ body {
 }
 
 .header-logo {
+  width: fit-content;
+
   &__link {
     display: flex;
     justify-content: start;
