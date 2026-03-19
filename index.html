@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/styles/style.scss" />
+    <title>CryptoTracker | Live Market Prices</title>
+  </head>
+  <body>
+    <div id="app" class="wrapper">
+      <header class="header" id="header">
+        <div class="container">
+          <div class="header__inner">
+            <div class="header-logo">
+              <a class="header-logo__link" href="#">
+                <img src="./src/assets/svgicons/cripto-icon.svg" alt="" />
+                <span>Crypto Tracker</span>
+              </a>
+            </div>
+            <nav class="header-nav">
+              <ul class="header-nav__list">
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="">Market</a>
+                </li>
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="">Exchanges</a>
+                </li>
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="">About</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="header-login-search">
+              <form class="search-form">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="search-icon"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  id="search"
+                  class="search-input"
+                  type="search"
+                  placeholder="Search coins..."
+                />
+              </form>
+              <a class="login-in" href="#">
+                <img src="./src/assets/svgicons/User-Login-icon.svg" alt="" />
+              </a>
+              <button class="burger-menu" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="page-main">
+        <div class="container">
+          <div class="page-main__head">
+            <h1 class="page-main__title">The Future of Crypto Tracking</h1>
+            <p class="page-main__subtitle">
+              Stay ahead of the market with real-time data, advanced analytics,
+              and portfolio insights.
+            </p>
+            <div class="page-main__action">
+              <button class="page-main__btn page-main__btn--primary">
+                Get Started
+              </button>
+              <button class="page-main__btn page-main__btn--outline">
+                View Markets
+              </button>
+            </div>
+          </div>
+          <section class="hero-section">
+            <div class="hero-section__tracker">
+              <div class="tracker-header">
+                <div class="tracker-header__col rank" data-type="market_cap_rank">
+                  <span class="sort-arrow">▼</span>
+                  <span>#</span>
+                </div>
+                <div class="tracker-header__col name" data-type="name">
+                  <span class="sort-arrow">▼</span>
+                  <span>Name</span>
+                </div>
+                <div class="tracker-header__col price" data-type="current_price">
+                  <span class="sort-arrow">▼</span>
+                  <span>Price</span>
+                </div>
+                <div class="tracker-header__col hour" data-type="price_change_percentage_1h_in_currency">
+                  <span class="sort-arrow">▼</span>
+                  <span>1h %</span>
+                </div>
+                <div class="tracker-header__col day" data-type="price_change_percentage_24h">
+                  <span class="sort-arrow">▼</span>
+                  <span>24h %</span>
+                </div>
+                <div
+                  class="tracker-header__col market-cap"
+                  data-type="market_cap">
+                  <span class="sort-arrow">▼</span>
+                  <span>Market Cap</span>
+                </div>
+                <div class="tracker-header__col volume" data-type="total_volume">
+                  <span class="sort-arrow">▼</span>
+                  <span>Volume</span>
+                </div>
+                <div class="tracker-header__col chart">Last 7 Days</div>
+              </div>
+              <div class="tracker-body"></div>
+            </div>
+            <div class="pagination">
+              <nav class="num-list"></nav>
+              <div class="dropdown">
+                <p class="dropdown__text">Rows</p>
+                <button class="dropdown__btn">20
+                  <span class="dropdown__arrow">▼</span>
+                </button>
+                <ul class="dropdown__list">
+                  <li class="dropdown__item" data-value="20">20</li>
+                  <li class="dropdown__item" data-value="50">50</li>
+                  <li class="dropdown__item" data-value="100">100</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-top">
+            <div class="footer-top__logo">
+              <a class="footer-top__link" href="#">
+                <img src="./src/assets/svgicons/cripto-icon.svg" alt="" />
+                <span>Crypto Tracker</span>
+              </a>
+            </div>
+            <nav class="footer-nav">
+              <h4 class="footer-nav__title">Navigation</h4>
+              <ul class="footer-nav__list">
+                <li class="footer-nav__item">
+                  <a class="footer-nav__link" href="">Market</a>
+                </li>
+                <li class="footer-nav__item">
+                  <a class="footer-nav__link" href="">Exchanges</a>
+                </li>
+                <li class="footer-nav__item">
+                  <a class="footer-nav__link" href="">About</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="footer-resources">
+              <h4 class="footer-resources__title">Resources</h4>
+              <ul class="footer-resources__list">
+                <li class="footer-resources__item">
+                  <a
+                    class="footer-resources__link"
+                    href="https://www.coingecko.com"
+                    target="_blank"
+                    >API Docs
+                  </a>
+                </li>
+                <li class="footer-resources__item">
+                  <a class="footer-resources__link" href="#">Market Guide</a>
+                </li>
+                <li class="footer-resources__item">
+                  <a class="footer-resources__link" href="#">Support</a>
+                </li>
+                <li class="footer-resources__item">
+                  <a class="footer-resources__link" href="#">Privacy</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-contact">
+              <ul class="footer-contact__list">
+                <li class="footer-contact__item">
+                  <a
+                    class="footer-contact__link"
+                    href="https://github.com/AL-Slaug"
+                    target="_blank"
+                  >
+                    <img
+                      class="footer-contact__img"
+                      src="./src/assets/svgicons/social-github-svg-new.svg"
+                      alt=""
+                    />
+                    <span class="footer-contact__github">AL-Slaug</span>
+                  </a>
+                </li>
+                <li class="footer-contact__item">
+                  <a
+                    class="footer-contact__link"
+                    href="https://www.linkedin.com/in/oleksandr-kolchak"
+                    target="_blank"
+                  >
+                    <img
+                      class="footer-contact__img"
+                      src="./src/assets/svgicons/linkedin-svg-new.svg"
+                      alt=""
+                    />
+                    <span class="footer-contact__linkedin"
+                      >Oleksandr Kolchak</span
+                    >
+                  </a>
+                </li>
+                <li class="footer-contact__item">
+                  <a
+                    class="footer-contact__link"
+                    href="https://t.me/Nick_Slaug"
+                    target="_blank"
+                  >
+                    <img
+                      class="footer-contact__img"
+                      src="./src/assets/svgicons/telegram-svg.svg"
+                      alt=""
+                    />
+                    <span class="footer-contact__telegram"> @Nick_Slaug</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p class="footer-bottom__copyright">© 2026</p>
+            <p class="footer-bottom__status-api">Status API: Online</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="./src/js/main.js"></script>
+  </body>
+</html>
