@@ -117,7 +117,6 @@ function renderPage() {
   renderTable(arrTable);
   
   renderPagination();
-  
 }
 
 
@@ -129,7 +128,6 @@ function renderPagination() {
   const maxPage = Math.ceil(displayCoins.length / perPage);
   list.innerHTML = '';
   let dotShown = false;
-  hiddenElement.scrollIntoView({behavior: "smooth"})
   
   list.innerHTML += `<button class="arrow-left ${currentPage === 1 ? 'disabled' : ''}"><</button>`;
   for (let i = 1; i <= maxPage; i++){
@@ -151,6 +149,7 @@ function renderPagination() {
 
 function changePage(event) {
   const maxPage = Math.ceil(displayCoins.length / perPage);
+  hiddenElement.scrollIntoView({behavior: "smooth"})
   let target = event.target;
   if (target.tagName !== 'BUTTON') return; 
 
@@ -223,3 +222,23 @@ function selectionDropdown(event) {
 
   renderPage(perPage);
 }
+
+
+let button = document.createElement('button');
+button.addEventListener('click', () => {
+  window.scrollTo({top: 0, behavior: 'smooth'});
+});
+
+function getBtn() {
+  button.classList = 'scroll-top__btn';
+  button.innerHTML = '⭱';
+  
+  document.body.append(button);
+}
+
+getBtn();
+
+window.addEventListener('scroll', () => {
+  window.scrollY >= 500 ? button.classList.add('active') : button.classList.remove('active');
+} );
+
