@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CryptoTracker | Live Market Prices</title>
+    <script type="module" crossorigin src="/crypto-tracker/assets/index-Db0zK0Ik.js"></script>
+    <link rel="stylesheet" crossorigin href="/crypto-tracker/assets/index-CSRySQLV.css">
+  </head>
+  <body>
+    <div id="app" class="wrapper">
+      <header class="header" id="header">
+        <div class="container">
+          <div class="header__inner">
+            <div class="header-logo">
+              <a class="header-logo__link" href="#">
+                <img src="data:image/svg+xml,%3csvg%20height='32'%20viewBox='0%200%2032%2032'%20width='32'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20fill='none'%20fill-rule='evenodd'%3e%3ccircle%20cx='16'%20cy='16'%20fill='%23efb914'%20fill-rule='nonzero'%20r='16'/%3e%3cpath%20d='m21.0016811%209.85510634c1.6897551%201.33163836%202.783213%203.29254076%202.9983189%205.42275566l-2.8469125-.7079642c-.516741-1.7465785-1.9381257-3.1886804-3.8595386-3.6664934-2.8669261-.7129411-5.7614386.9909294-6.4650747%203.8057014s1.0500569%205.6745486%203.9169829%206.3874898c1.9214129.4778129%203.8552168-.1299277%205.1335833-1.4301011l2.8469137.7079631c-1.1926169%201.7801454-3.0810774%202.9995105-5.1998433%203.3840538l-.8103066%203.2414886-2.5955144-.6454471.6435642-2.5744648c-.2182891-.0358764-.4369079-.0808557-.6554199-.1351948-.2185119-.0543391-.4327125-.1169924-.6423373-.1875288l-.6435642%202.5744648-2.5955144-.6454471.8103066-3.2414885c-2.37860505-1.8744976-3.57563879-4.9958905-2.80436501-8.081235s3.29742791-5.2808629%206.27993531-5.82217012l.8103067-3.24148858%202.5955144.64544711-.6435642%202.57446483c.2182891.03587638.4369079.08085562.6554198.13519472.218512.0543391.4327126.11699249.6423374.18752883l.6435642-2.57446483%202.5955144.64544711z'%20fill='%23fff'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+                <span>Crypto Tracker</span>
+              </a>
+            </div>
+            <nav class="header-nav">
+              <ul class="header-nav__list">
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="">Market</a>
+                </li>
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="">Exchanges</a>
+                </li>
+                <li class="header-nav__item">
+                  <a class="header-nav__link" href="">About</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="header-login-search">
+              <form class="search-form">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="search-icon"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input
+                  id="search"
+                  class="search-input"
+                  type="search"
+                  placeholder="Search coins..."
+                />
+              </form>
+              <a class="login-in" href="#">
+                <img src="data:image/svg+xml,%3c!--?xml%20version='1.0'%20encoding='utf-8'?--%3e%3c!--%20Generator:%20Adobe%20Illustrator%2018.1.1,%20SVG%20Export%20Plug-In%20.%20SVG%20Version:%206.00%20Build%200)%20--%3e%3csvg%20version='1.1'%20id='_x31_0'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20x='0px'%20y='0px'%20viewBox='0%200%20512%20512'%20style='width:%2032px;%20height:%2032px;%20opacity:%201;'%20xml:space='preserve'%3e%3cstyle%20type='text/css'%3e%20.st0{fill:%23374149;}%20%3c/style%3e%3cg%3e%3cpath%20class='st0'%20d='M256,0C114.801,0,0,114.883,0,256c0,67.282,25.918,130.883,73.039,179.039%20C121.519,484.718,186.481,512,256,512c69.438,0,134.398-27.282,182.879-76.961C486,386.883,512,323.282,512,256%20C512,114.883,397.121,0,256,0z%20M103.875,410.461c42.394-26.714,97.168-55.98,101.004-56.859h2.402v-46%20c-5.524-2.883-9.282-10-11.844-17.039c-2.473-6.652-3.653-13.137-4.02-15.812c0-0.059-0.011-0.168-0.007-0.2%20c-0.008,0.004-0.016,0-0.024,0.004c-0.007-0.038-0.019-0.117-0.027-0.156c-17.519,5.844-20.078-26.957-20.878-35.278%20c-0.801-7.519,2.558-12.801,4.878-14.878c-0.558-1.203-1.281-2.961-1.922-5.043c0-0.078,0-0.078,0-0.078%20c-6.719-30.402-2.797-39.281,10.641-63.519c13.602-24.562,47.602-48.242,67.441-47.922c1.52,0,3.039,0,4.481,0.16%20c23.84,1.602,36.718,13.359,46.879,31.519c6.16,0,16.878,8.16,24.961,16.242c3.519,3.438,6.558,6.961,8.48,9.758%20c5.598,8,6.719,20.883,5.84,32.723c-0.641,8.078-2.082,15.758-3.679,21.038v0.078c-0.641,2.082-1.282,3.84-1.922,5.043%20c2.402,2.078,5.68,7.359,4.961,14.878c-0.878,8.321-3.441,41.122-20.878,35.278c0,0.164,0,0.32-0.082,0.485%20c-0.801,5.515-3.679,25.835-15.84,32.718v45.699v0.141l0,0v0.16h2.321c3.574,0.816,51.351,26.238,92.07,51.297%20c3.027,1.875,6.019,3.746,8.945,5.61C367.336,450.809,313.59,472.883,256,472.883c-52.379,0-101.672-18.367-140.883-52.09%20C111.282,417.481,107.508,414.066,103.875,410.461z'%20style='fill:%20rgb(253,%20253,%20253);'%3e%3c/path%3e%3c/g%3e%3c/svg%3e" alt="" />
+              </a>
+              <button class="burger-menu" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="page-main">
+        <div class="container">
+          <div class="page-main__head">
+            <h1 class="page-main__title">The Future of Crypto Tracking</h1>
+            <p class="page-main__subtitle">
+              Stay ahead of the market with real-time data, advanced analytics,
+              and portfolio insights.
+            </p>
+            <div class="page-main__action">
+              <button class="page-main__btn page-main__btn--primary">
+                Get Started
+              </button>
+              <button class="page-main__btn page-main__btn--outline">
+                View Markets
+              </button>
+            </div>
+          </div>
+          <section class="hero-section">
+            <div class="hero-section__tracker">
+              <div class="tracker-header">
+                <div class="tracker-header__col rank" data-type="market_cap_rank">
+                  <span class="sort-arrow">▼</span>
+                  <span>#</span>
+                </div>
+                <div class="tracker-header__col name" data-type="name">
+                  <span class="sort-arrow">▼</span>
+                  <span>Name</span>
+                </div>
+                <div class="tracker-header__col price" data-type="current_price">
+                  <span class="sort-arrow">▼</span>
+                  <span>Price</span>
+                </div>
+                <div class="tracker-header__col hour" data-type="price_change_percentage_1h_in_currency">
+                  <span class="sort-arrow">▼</span>
+                  <span>1h %</span>
+                </div>
+                <div class="tracker-header__col day" data-type="price_change_percentage_24h">
+                  <span class="sort-arrow">▼</span>
+                  <span>24h %</span>
+                </div>
+                <div
+                  class="tracker-header__col market-cap"
+                  data-type="market_cap">
+                  <span class="sort-arrow">▼</span>
+                  <span>Market Cap</span>
+                </div>
+                <div class="tracker-header__col volume" data-type="total_volume">
+                  <span class="sort-arrow">▼</span>
+                  <span>Volume</span>
+                </div>
+                <div class="tracker-header__col chart">Last 7 Days</div>
+              </div>
+              <div class="tracker-body"></div>
+            </div>
+            <div class="pagination">
+              <nav class="num-list"></nav>
+              <div class="dropdown">
+                <p class="dropdown__text">Rows</p>
+                <button class="dropdown__btn">20
+                  <span class="dropdown__arrow">▼</span>
+                </button>
+                <ul class="dropdown__list">
+                  <li class="dropdown__item" data-value="20">20</li>
+                  <li class="dropdown__item" data-value="50">50</li>
+                  <li class="dropdown__item" data-value="100">100</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-top">
+            <div class="footer-top__logo">
+              <a class="footer-top__link" href="#">
+                <img src="data:image/svg+xml,%3csvg%20height='32'%20viewBox='0%200%2032%2032'%20width='32'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20fill='none'%20fill-rule='evenodd'%3e%3ccircle%20cx='16'%20cy='16'%20fill='%23efb914'%20fill-rule='nonzero'%20r='16'/%3e%3cpath%20d='m21.0016811%209.85510634c1.6897551%201.33163836%202.783213%203.29254076%202.9983189%205.42275566l-2.8469125-.7079642c-.516741-1.7465785-1.9381257-3.1886804-3.8595386-3.6664934-2.8669261-.7129411-5.7614386.9909294-6.4650747%203.8057014s1.0500569%205.6745486%203.9169829%206.3874898c1.9214129.4778129%203.8552168-.1299277%205.1335833-1.4301011l2.8469137.7079631c-1.1926169%201.7801454-3.0810774%202.9995105-5.1998433%203.3840538l-.8103066%203.2414886-2.5955144-.6454471.6435642-2.5744648c-.2182891-.0358764-.4369079-.0808557-.6554199-.1351948-.2185119-.0543391-.4327125-.1169924-.6423373-.1875288l-.6435642%202.5744648-2.5955144-.6454471.8103066-3.2414885c-2.37860505-1.8744976-3.57563879-4.9958905-2.80436501-8.081235s3.29742791-5.2808629%206.27993531-5.82217012l.8103067-3.24148858%202.5955144.64544711-.6435642%202.57446483c.2182891.03587638.4369079.08085562.6554198.13519472.218512.0543391.4327126.11699249.6423374.18752883l.6435642-2.57446483%202.5955144.64544711z'%20fill='%23fff'/%3e%3c/g%3e%3c/svg%3e" alt="" />
+                <span>Crypto Tracker</span>
+              </a>
+            </div>
+            <nav class="footer-nav">
+              <h4 class="footer-nav__title">Navigation</h4>
+              <ul class="footer-nav__list">
+                <li class="footer-nav__item">
+                  <a class="footer-nav__link" href="">Market</a>
+                </li>
+                <li class="footer-nav__item">
+                  <a class="footer-nav__link" href="">Exchanges</a>
+                </li>
+                <li class="footer-nav__item">
+                  <a class="footer-nav__link" href="">About</a>
+                </li>
+              </ul>
+            </nav>
+            <div class="footer-resources">
+              <h4 class="footer-resources__title">Resources</h4>
+              <ul class="footer-resources__list">
+                <li class="footer-resources__item">
+                  <a
+                    class="footer-resources__link"
+                    href="https://www.coingecko.com"
+                    target="_blank"
+                    >API Docs
+                  </a>
+                </li>
+                <li class="footer-resources__item">
+                  <a class="footer-resources__link" href="#">Market Guide</a>
+                </li>
+                <li class="footer-resources__item">
+                  <a class="footer-resources__link" href="#">Support</a>
+                </li>
+                <li class="footer-resources__item">
+                  <a class="footer-resources__link" href="#">Privacy</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-contact">
+              <ul class="footer-contact__list">
+                <li class="footer-contact__item">
+                  <a
+                    class="footer-contact__link"
+                    href="https://github.com/AL-Slaug"
+                    target="_blank"
+                  >
+                    <img
+                      class="footer-contact__img"
+                      src="data:image/svg+xml,%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%201.1//EN'%20'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Transformed%20by:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20fill='%23ffffff'%20height='64px'%20width='64px'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='-0.96%20-0.96%2025.92%2025.92'%20xml:space='preserve'%3e%3cg%20id='SVGRepo_bgCarrier'%20stroke-width='0'/%3e%3cg%20id='SVGRepo_tracerCarrier'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke='%23F3BA2F'%20stroke-width='1.44'%3e%3cg%20id='social-github'%3e%3cpath%20d='M22.4,6c-1.1-1.8-2.5-3.3-4.4-4.4C16.2,0.5,14.2,0,12,0C9.8,0,7.8,0.5,6,1.6C4.1,2.7,2.7,4.1,1.6,6C0.5,7.8,0,9.8,0,12%20c0,2.6,0.8,5,2.3,7.1c1.5,2.1,3.5,3.5,5.9,4.3c0.3,0.1,0.5,0,0.6-0.1C9,23.2,9,23,9,22.8c0,0,0-0.3,0-0.8c0-0.5,0-1,0-1.4l-0.4,0.1%20c-0.2,0-0.5,0.1-0.9,0.1c-0.3,0-0.7,0-1.1-0.1c-0.4-0.1-0.7-0.2-1-0.5c-0.3-0.2-0.6-0.6-0.7-1l-0.2-0.4c-0.1-0.2-0.3-0.5-0.5-0.8%20c-0.2-0.3-0.5-0.5-0.7-0.6l-0.1-0.1c-0.1-0.1-0.1-0.1-0.2-0.2c-0.1-0.1-0.1-0.1-0.1-0.2c0-0.1,0-0.1,0.1-0.2c0.1,0,0.2-0.1,0.5-0.1%20l0.3,0c0.2,0,0.5,0.2,0.8,0.4c0.3,0.2,0.6,0.5,0.8,0.8c0.2,0.4,0.5,0.8,0.9,1c0.3,0.2,0.7,0.3,1,0.3c0.3,0,0.6,0,0.9-0.1%20C8.6,19.1,8.8,19,9,18.9c0.1-0.7,0.3-1.2,0.8-1.6c-0.6-0.1-1.1-0.2-1.6-0.3c-0.5-0.1-1-0.3-1.5-0.6c-0.5-0.3-0.9-0.6-1.3-1%20c-0.3-0.4-0.6-1-0.8-1.6c-0.2-0.7-0.3-1.5-0.3-2.3c0-1.3,0.4-2.3,1.2-3.2C5.2,7.2,5.2,6.1,5.7,5C6,4.9,6.4,4.9,7,5.2%20c0.6,0.2,1,0.4,1.3,0.6C8.6,5.9,8.8,6.1,9,6.2c1-0.3,2-0.4,3-0.4s2,0.1,3,0.4l0.6-0.4C16,5.6,16.5,5.3,17,5.1%20c0.6-0.2,1-0.3,1.3-0.2c0.5,1.2,0.5,2.2,0.1,3.2c0.8,0.9,1.2,2,1.2,3.2c0,0.9-0.1,1.7-0.3,2.4c-0.2,0.7-0.5,1.2-0.8,1.6%20c-0.3,0.4-0.8,0.8-1.3,1c-0.5,0.3-1,0.5-1.5,0.6c-0.5,0.1-1,0.2-1.6,0.3c0.5,0.5,0.8,1.2,0.8,2.2v3.3c0,0.2,0.1,0.3,0.2,0.5%20c0.1,0.1,0.3,0.2,0.6,0.1c2.4-0.8,4.4-2.2,5.9-4.3C23.2,17,24,14.6,24,12C24,9.8,23.5,7.8,22.4,6z'/%3e%3c/g%3e%3c/g%3e%3cg%20id='SVGRepo_iconCarrier'%3e%3cg%20id='social-github'%3e%3cpath%20d='M22.4,6c-1.1-1.8-2.5-3.3-4.4-4.4C16.2,0.5,14.2,0,12,0C9.8,0,7.8,0.5,6,1.6C4.1,2.7,2.7,4.1,1.6,6C0.5,7.8,0,9.8,0,12%20c0,2.6,0.8,5,2.3,7.1c1.5,2.1,3.5,3.5,5.9,4.3c0.3,0.1,0.5,0,0.6-0.1C9,23.2,9,23,9,22.8c0,0,0-0.3,0-0.8c0-0.5,0-1,0-1.4l-0.4,0.1%20c-0.2,0-0.5,0.1-0.9,0.1c-0.3,0-0.7,0-1.1-0.1c-0.4-0.1-0.7-0.2-1-0.5c-0.3-0.2-0.6-0.6-0.7-1l-0.2-0.4c-0.1-0.2-0.3-0.5-0.5-0.8%20c-0.2-0.3-0.5-0.5-0.7-0.6l-0.1-0.1c-0.1-0.1-0.1-0.1-0.2-0.2c-0.1-0.1-0.1-0.1-0.1-0.2c0-0.1,0-0.1,0.1-0.2c0.1,0,0.2-0.1,0.5-0.1%20l0.3,0c0.2,0,0.5,0.2,0.8,0.4c0.3,0.2,0.6,0.5,0.8,0.8c0.2,0.4,0.5,0.8,0.9,1c0.3,0.2,0.7,0.3,1,0.3c0.3,0,0.6,0,0.9-0.1%20C8.6,19.1,8.8,19,9,18.9c0.1-0.7,0.3-1.2,0.8-1.6c-0.6-0.1-1.1-0.2-1.6-0.3c-0.5-0.1-1-0.3-1.5-0.6c-0.5-0.3-0.9-0.6-1.3-1%20c-0.3-0.4-0.6-1-0.8-1.6c-0.2-0.7-0.3-1.5-0.3-2.3c0-1.3,0.4-2.3,1.2-3.2C5.2,7.2,5.2,6.1,5.7,5C6,4.9,6.4,4.9,7,5.2%20c0.6,0.2,1,0.4,1.3,0.6C8.6,5.9,8.8,6.1,9,6.2c1-0.3,2-0.4,3-0.4s2,0.1,3,0.4l0.6-0.4C16,5.6,16.5,5.3,17,5.1%20c0.6-0.2,1-0.3,1.3-0.2c0.5,1.2,0.5,2.2,0.1,3.2c0.8,0.9,1.2,2,1.2,3.2c0,0.9-0.1,1.7-0.3,2.4c-0.2,0.7-0.5,1.2-0.8,1.6%20c-0.3,0.4-0.8,0.8-1.3,1c-0.5,0.3-1,0.5-1.5,0.6c-0.5,0.1-1,0.2-1.6,0.3c0.5,0.5,0.8,1.2,0.8,2.2v3.3c0,0.2,0.1,0.3,0.2,0.5%20c0.1,0.1,0.3,0.2,0.6,0.1c2.4-0.8,4.4-2.2,5.9-4.3C23.2,17,24,14.6,24,12C24,9.8,23.5,7.8,22.4,6z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e"
+                      alt=""
+                    />
+                    <span class="footer-contact__github">AL-Slaug</span>
+                  </a>
+                </li>
+                <li class="footer-contact__item">
+                  <a
+                    class="footer-contact__link"
+                    href="https://www.linkedin.com/in/oleksandr-kolchak"
+                    target="_blank"
+                  >
+                    <img
+                      class="footer-contact__img"
+                      src="data:image/svg+xml,%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%201.1//EN'%20'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Transformed%20by:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20height='64px'%20width='64px'%20version='1.1'%20id='Layer_1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20viewBox='-11.65%20-11.65%20314.62%20314.62'%20xml:space='preserve'%20fill='%23000000'%3e%3cg%20id='SVGRepo_bgCarrier'%20stroke-width='0'/%3e%3cg%20id='SVGRepo_tracerCarrier'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke='%23F3BA2F'%20stroke-width='17.47914'%3e%3cg%3e%3cpath%20style='fill:%230E76A8;'%20d='M145.659,0c80.45,0,145.66,65.219,145.66,145.66s-65.21,145.659-145.66,145.659S0,226.1,0,145.66%20S65.21,0,145.659,0z'/%3e%3cpath%20style='fill:%23FFFFFF;'%20d='M82.079,200.136h27.275v-90.91H82.079V200.136z%20M188.338,106.077%20c-13.237,0-25.081,4.834-33.483,15.504v-12.654H127.48v91.21h27.375v-49.324c0-10.424,9.55-20.593,21.512-20.593%20s14.912,10.169,14.912,20.338v49.57h27.275v-51.6C218.553,112.686,201.584,106.077,188.338,106.077z%20M95.589,100.141%20c7.538,0,13.656-6.118,13.656-13.656S103.127,72.83,95.589,72.83s-13.656,6.118-13.656,13.656S88.051,100.141,95.589,100.141z'/%3e%3c/g%3e%3c/g%3e%3cg%20id='SVGRepo_iconCarrier'%3e%3cg%3e%3cpath%20style='fill:%230E76A8;'%20d='M145.659,0c80.45,0,145.66,65.219,145.66,145.66s-65.21,145.659-145.66,145.659S0,226.1,0,145.66%20S65.21,0,145.659,0z'/%3e%3cpath%20style='fill:%23FFFFFF;'%20d='M82.079,200.136h27.275v-90.91H82.079V200.136z%20M188.338,106.077%20c-13.237,0-25.081,4.834-33.483,15.504v-12.654H127.48v91.21h27.375v-49.324c0-10.424,9.55-20.593,21.512-20.593%20s14.912,10.169,14.912,20.338v49.57h27.275v-51.6C218.553,112.686,201.584,106.077,188.338,106.077z%20M95.589,100.141%20c7.538,0,13.656-6.118,13.656-13.656S103.127,72.83,95.589,72.83s-13.656,6.118-13.656,13.656S88.051,100.141,95.589,100.141z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e"
+                      alt=""
+                    />
+                    <span class="footer-contact__linkedin"
+                      >Oleksandr Kolchak</span
+                    >
+                  </a>
+                </li>
+                <li class="footer-contact__item">
+                  <a
+                    class="footer-contact__link"
+                    href="https://t.me/Nick_Slaug"
+                    target="_blank"
+                  >
+                    <img
+                      class="footer-contact__img"
+                      src="data:image/svg+xml,%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%201.1//EN'%20'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3e%3c!--%20Uploaded%20to:%20SVG%20Repo,%20www.svgrepo.com,%20Transformed%20by:%20SVG%20Repo%20Mixer%20Tools%20--%3e%3csvg%20width='64px'%20height='64px'%20viewBox='0%200%2032%2032'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20id='SVGRepo_bgCarrier'%20stroke-width='0'/%3e%3cg%20id='SVGRepo_tracerCarrier'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke='%23F3BA2F'%20stroke-width='1.92'%3e%3ccircle%20cx='16'%20cy='16'%20r='14'%20fill='url(%23paint0_linear_87_7225)'/%3e%3cpath%20d='M22.9866%2010.2088C23.1112%209.40332%2022.3454%208.76755%2021.6292%209.082L7.36482%2015.3448C6.85123%2015.5703%206.8888%2016.3483%207.42147%2016.5179L10.3631%2017.4547C10.9246%2017.6335%2011.5325%2017.541%2012.0228%2017.2023L18.655%2012.6203C18.855%2012.4821%2019.073%2012.7665%2018.9021%2012.9426L14.1281%2017.8646C13.665%2018.3421%2013.7569%2019.1512%2014.314%2019.5005L19.659%2022.8523C20.2585%2023.2282%2021.0297%2022.8506%2021.1418%2022.1261L22.9866%2010.2088Z'%20fill='white'/%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_87_7225'%20x1='16'%20y1='2'%20x2='16'%20y2='30'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%2337BBFE'/%3e%3cstop%20offset='1'%20stop-color='%23007DBB'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/g%3e%3cg%20id='SVGRepo_iconCarrier'%3e%3ccircle%20cx='16'%20cy='16'%20r='14'%20fill='url(%23paint0_linear_87_7225)'/%3e%3cpath%20d='M22.9866%2010.2088C23.1112%209.40332%2022.3454%208.76755%2021.6292%209.082L7.36482%2015.3448C6.85123%2015.5703%206.8888%2016.3483%207.42147%2016.5179L10.3631%2017.4547C10.9246%2017.6335%2011.5325%2017.541%2012.0228%2017.2023L18.655%2012.6203C18.855%2012.4821%2019.073%2012.7665%2018.9021%2012.9426L14.1281%2017.8646C13.665%2018.3421%2013.7569%2019.1512%2014.314%2019.5005L19.659%2022.8523C20.2585%2023.2282%2021.0297%2022.8506%2021.1418%2022.1261L22.9866%2010.2088Z'%20fill='white'/%3e%3cdefs%3e%3clinearGradient%20id='paint0_linear_87_7225'%20x1='16'%20y1='2'%20x2='16'%20y2='30'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%2337BBFE'/%3e%3cstop%20offset='1'%20stop-color='%23007DBB'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/g%3e%3c/svg%3e"
+                      alt=""
+                    />
+                    <span class="footer-contact__telegram"> @Nick_Slaug</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p class="footer-bottom__copyright">© 2026</p>
+            <p class="footer-bottom__status-api">Status API: Online</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
