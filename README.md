@@ -30,4 +30,4 @@ npm run dev
 ```
 
 ## 🌐 Live Demo
-[https://al-slaug.github.io/crypto-tracker/](https://al-slaug.github.io/crypto-tracker/)
+[https://S1aug.github.io/crypto-tracker/](https://S1aug.github.io/crypto-tracker/)
